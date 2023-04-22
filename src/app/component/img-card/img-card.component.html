@@ -1,0 +1,32 @@
+<div class="w-80 border-double border-4
+                        hover:bg-blue-100 rounded-lg
+                        drop-shadow-lg
+                        py-1
+                        bg-white">
+
+    <div class="flex items-center mb-4 ml-1">
+        <img
+                class="rounded-full"
+                src="https://picsum.photos/30/30"
+                alt="Katherine Johnson"
+        />
+        <p class="ml-4">franky</p>
+    </div>
+
+    <div class="flex justify-center">
+        <img class="rounded-lg"
+             *ngIf="imgSrc !== ''"
+             (mouseenter)="onMouseEnterTheImg()"
+             (mouseleave)="onMouseOutTheImg()"
+             [src]="imgSrc"
+             alt="Katherine Johnson"
+        />
+    </div>
+
+    <div class="flex justify-center m-4 ">
+        <app-button-with-tip tipContent="test">
+            Buy
+        </app-button-with-tip>
+    </div>
+
+</div>
