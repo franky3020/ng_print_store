@@ -2,7 +2,6 @@
 .typing {
     white-space: nowrap;
     overflow: hidden;
-    font-family: monospace;
     animation: typing 2s steps(15), blink .5s step-end 8 alternate;
 }
 
