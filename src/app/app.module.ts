@@ -9,6 +9,7 @@ import { DemoComponentPageComponent } from './page/demo-component-page/demo-comp
 import { ImgCardComponent } from './component/img-card/img-card.component';
 import {NgOptimizedImage} from "@angular/common";
 import { TypingTextComponent } from './component/typing-text/typing-text.component';
+import { TestMatterJsPageComponent } from './page/test-matter-js-page/test-matter-js-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,8 @@ import { TypingTextComponent } from './component/typing-text/typing-text.compone
     HomePageComponent,
     DemoComponentPageComponent,
     ImgCardComponent,
-    TypingTextComponent
+    TypingTextComponent,
+    TestMatterJsPageComponent
   ],
   imports: [
     BrowserModule,
