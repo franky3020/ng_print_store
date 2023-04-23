@@ -10,6 +10,7 @@ import { ImgCardComponent } from './component/img-card/img-card.component';
 import {NgOptimizedImage} from "@angular/common";
 import { TypingTextComponent } from './component/typing-text/typing-text.component';
 import { TestMatterJsPageComponent } from './page/test-matter-js-page/test-matter-js-page.component';
+import { CoolBuyBtnComponent } from './component/cool-buy-btn/cool-buy-btn.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { TestMatterJsPageComponent } from './page/test-matter-js-page/test-matte
     DemoComponentPageComponent,
     ImgCardComponent,
     TypingTextComponent,
-    TestMatterJsPageComponent
+    TestMatterJsPageComponent,
+    CoolBuyBtnComponent
   ],
   imports: [
     BrowserModule,
