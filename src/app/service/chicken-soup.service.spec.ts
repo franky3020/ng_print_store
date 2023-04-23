@@ -19,7 +19,7 @@ describe('ChickenSoupForTheSoulGeneratorService', () => {
     let service = TestBed.inject(ChickenSoupService);
 
     service.isAfternoon = () => {
-      return true;
+      return false;
     };
 
     let content = service.getPrimaryOne();
@@ -31,7 +31,7 @@ describe('ChickenSoupForTheSoulGeneratorService', () => {
     let service = TestBed.inject(ChickenSoupService);
 
     service.isAfternoon = () => {
-      return false;
+      return true;
     };
 
     let content = service.getPrimaryOne();

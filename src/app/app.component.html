@@ -1,12 +1,18 @@
 
 
-<div class="w-full bg-blue-50 h-24 px-8">
+<!--心靈雞湯的標語-->
+<div class="flex justify-center chicken-soup py-2 text-blue-700 font-bold text-xl">
+    <app-typing-text [typingText]="chickenSoup"></app-typing-text>
+</div>
 
-    <div class="inline-flex w-1/2 h-full items-center">
-        <p (click)="goToHomePage()" class="web_title">3D Print Store</p>
+<!--網頁 title-->
+<div class="w-full bg-blue-50 h-24 px-8 py-4 flex justify-between text-base">
+
+    <div class="flex h-full items-center ">
+        <app-typing-text (click)="goToHomePage()" [typingText]="'3D Print Store'"></app-typing-text>
     </div>
 
-    <div class="inline-flex w-1/2 h-full items-center justify-end">
+    <div class="flex h-full items-center justify-end">
         <p>Other Link</p>
     </div>
 

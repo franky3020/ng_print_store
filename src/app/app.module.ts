@@ -8,13 +8,15 @@ import { HomePageComponent } from './page/home-page/home-page.component';
 import { DemoComponentPageComponent } from './page/demo-component-page/demo-component-page.component';
 import { ImgCardComponent } from './component/img-card/img-card.component';
 import {NgOptimizedImage} from "@angular/common";
+import { TypingTextComponent } from './component/typing-text/typing-text.component';
 @NgModule({
   declarations: [
     AppComponent,
     ButtonWithTipComponent,
     HomePageComponent,
     DemoComponentPageComponent,
-    ImgCardComponent
+    ImgCardComponent,
+    TypingTextComponent
   ],
   imports: [
     BrowserModule,
