@@ -122,3 +122,11 @@ export class CoolBuyBtnComponent {
   }
 
 }
+
+
+@Component({
+  selector: 'app-cool-buy-btn',
+  template: ''
+})
+export class MockCoolBuyBtnComponent {
+}

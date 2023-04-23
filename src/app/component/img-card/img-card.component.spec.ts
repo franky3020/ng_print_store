@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ImgCardComponent } from './img-card.component';
 import {Component} from "@angular/core";
+import {MockCoolBuyBtnComponent} from "../cool-buy-btn/cool-buy-btn.component";
 
 describe('ImgCardComponent', () => {
   let component: ImgCardComponent;
@@ -9,7 +10,7 @@ describe('ImgCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ImgCardComponent, MockButtonWithTipComponent ]
+      declarations: [ ImgCardComponent, MockButtonWithTipComponent, MockCoolBuyBtnComponent ]
     })
     .compileComponents();
 

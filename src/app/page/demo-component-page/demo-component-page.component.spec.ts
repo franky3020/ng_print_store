@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DemoComponentPageComponent } from './demo-component-page.component';
 import {Component} from "@angular/core";
+import {MockCoolBuyBtnComponent} from "../../component/cool-buy-btn/cool-buy-btn.component";
 
 describe('DemoComponentPageComponent', () => {
   let component: DemoComponentPageComponent;
@@ -9,7 +10,7 @@ describe('DemoComponentPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DemoComponentPageComponent, MockButtonWithTipComponent ]
+      declarations: [ DemoComponentPageComponent, MockButtonWithTipComponent, MockCoolBuyBtnComponent ]
     })
     .compileComponents();
 
