@@ -26,10 +26,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('ng_print_store');
   });
 
-  it('should render title', () => {
+  it('should have 3D pint logo', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('ng_print_store app is running!');
+    expect(compiled.querySelector('.web_title')?.textContent).toContain('3D Print Store');
   });
 });

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DemoComponentPageComponent } from './demo-component-page.component';
+import {Component} from "@angular/core";
 
 describe('DemoComponentPageComponent', () => {
   let component: DemoComponentPageComponent;
@@ -8,7 +9,7 @@ describe('DemoComponentPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DemoComponentPageComponent ]
+      declarations: [ DemoComponentPageComponent, MockButtonWithTipComponent ]
     })
     .compileComponents();
 
@@ -21,3 +22,10 @@ describe('DemoComponentPageComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+@Component({
+  selector: 'app-button-with-tip',
+  template: ''
+})
+class MockButtonWithTipComponent {
+}

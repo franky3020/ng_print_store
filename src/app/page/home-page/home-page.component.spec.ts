@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomePageComponent } from './home-page.component';
+import {Component} from "@angular/core";
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
@@ -8,7 +9,9 @@ describe('HomePageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomePageComponent ]
+      declarations: [
+          HomePageComponent,
+          MockImgCardComponent]
     })
     .compileComponents();
 
@@ -21,3 +24,11 @@ describe('HomePageComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+
+@Component({
+  selector: 'app-img-card',
+  template: ''
+})
+class MockImgCardComponent {
+}

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ImgCardComponent } from './img-card.component';
+import {Component} from "@angular/core";
 
 describe('ImgCardComponent', () => {
   let component: ImgCardComponent;
@@ -8,7 +9,7 @@ describe('ImgCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ImgCardComponent ]
+      declarations: [ ImgCardComponent, MockButtonWithTipComponent ]
     })
     .compileComponents();
 
@@ -21,3 +22,11 @@ describe('ImgCardComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+
+@Component({
+  selector: 'app-button-with-tip',
+  template: ''
+})
+class MockButtonWithTipComponent {
+}
