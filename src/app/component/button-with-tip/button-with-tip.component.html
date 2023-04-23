@@ -2,7 +2,8 @@
 
     <!--    <button (mouseenter)="mouseEnter()"-->
     <!--            (mouseleave)="mouseLeave()"  -->
-    <button (click)="$event.preventDefault();mouseEnter()"
+    <button (mouseenter)="moveToBtn()"
+            (mouseleave)="leaveToBtn()"
             [ngClass]="{'w-32': bSize === 'small',
                         'w-56': bSize === 'middle',
                         'w-80': bSize === 'big',

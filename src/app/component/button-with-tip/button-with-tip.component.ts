@@ -12,11 +12,11 @@ export class ButtonWithTipComponent {
   @Input() tipContent: string = '';
   showTip = false;
 
-  mouseEnter() {
-    this.showTip = !this.showTip;
+  moveToBtn() {
+    this.showTip = true;
   }
 
-  mouseLeave() {
+  leaveToBtn() {
     this.showTip = false;
   }
 
