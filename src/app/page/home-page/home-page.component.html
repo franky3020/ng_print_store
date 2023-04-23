@@ -1,7 +1,11 @@
 
-<div *ngFor="let product of products">
-    <app-img-card [name]="product.name"
-                  primaryImageSrc="https://picsum.photos/id/56/200/200"
-                  secondaryImageSrc="https://picsum.photos/id/77/200/200"
-    ></app-img-card>
+
+<div class="flex">
+    <div *ngFor="let product of products" class="m-8">
+        <app-img-card [name]="product.name"
+                      primaryImageSrc="https://picsum.photos/id/56/200/200"
+                      secondaryImageSrc="https://picsum.photos/id/77/200/200"
+        ></app-img-card>
+    </div>
 </div>
+
