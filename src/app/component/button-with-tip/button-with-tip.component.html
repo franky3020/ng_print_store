@@ -1,7 +1,5 @@
 <div>
 
-    <!--    <button (mouseenter)="mouseEnter()"-->
-    <!--            (mouseleave)="mouseLeave()"  -->
     <button (mouseenter)="moveToBtn()"
             (mouseleave)="leaveToBtn()"
             [ngClass]="{'w-32': bSize === 'small',
@@ -14,7 +12,7 @@
 
 
         <div class="relative w-full h-1 flex justify-center">
-            <div *ngIf="showTip && tipContent!=='' " class="flex justify-center relative top-3" (click)="$event.stopPropagation()">
+            <div *ngIf="showTip && tipContent!=='' " class="flex justify-center relative top-3">
 
                 <div>
 <!--                    使用以下連結 讓箭頭不為實心的-->

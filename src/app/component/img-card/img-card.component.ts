@@ -7,6 +7,11 @@ import {Component, Input} from '@angular/core';
 })
 export class ImgCardComponent {
 
+  @Input()
+  primaryImageSrc = '';
+  @Input()
+  secondaryImageSrc = '';
+
   imgSrc = 'https://picsum.photos/200/200';
 
   constructor() {
@@ -14,19 +19,7 @@ export class ImgCardComponent {
 
   ngOnInit() {
     this.imgSrc = this.primaryImageSrc;
-    console.log("this.primaryImageSrc, this.secondaryImageSrc");
-    console.log(this.primaryImageSrc, this.secondaryImageSrc);
   }
-
-  ngAfterViewInit() {
-    console.log("this.primaryImageSrc, this.secondaryImageSrc");
-    console.log(this.primaryImageSrc, this.secondaryImageSrc);
-  }
-
-  @Input()
-  primaryImageSrc = '';
-  @Input()
-  secondaryImageSrc = '';
 
   onMouseEnterTheImg() {
     this.imgSrc = this.secondaryImageSrc;
