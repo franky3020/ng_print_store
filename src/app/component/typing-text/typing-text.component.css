@@ -3,7 +3,6 @@
     white-space: nowrap;
     overflow: hidden;
     font-family: monospace;
-    /*font-size: 1.5em;*/
     animation: typing 2s steps(15), blink .5s step-end 8 alternate;
 }
 
