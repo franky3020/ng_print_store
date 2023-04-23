@@ -12,7 +12,7 @@ export class CoolBuyBtnComponent {
   @ViewChild('p5_div') p5_div: ElementRef<HTMLDivElement> | undefined;
 
   width = 240;
-  height = 80;
+  height = 60;
 
   isEngineRun = false;
 
@@ -49,20 +49,19 @@ export class CoolBuyBtnComponent {
 
       };
 
-      sketch.mouseClicked = () => {
-
-        if (!this.isEngineRun) {
-          Runner.run(this.engine); // 啟動物理引擎
-
-          //TODO: 想用一顆球把所有的滑落
-          // this.createBall();
-
-          this.isEngineRun = true;
-        }
-
-      }
     };
     new p5(s);
+  }
+
+  startEngine() {
+    if (!this.isEngineRun) {
+      Runner.run(this.engine); // 啟動物理引擎
+
+      //TODO: 想用一顆球把所有的滑落
+      // this.createBall();
+
+      this.isEngineRun = true;
+    }
   }
 
   getABox(x: number, y: number) {
@@ -74,13 +73,13 @@ export class CoolBuyBtnComponent {
   }
 
   createBaseLine() {
-    let baseLine = Bodies.rectangle(50, 80, 500, 1, {
+    let baseLine = Bodies.rectangle(50, 55, 500, 1, {
       isStatic: true,
       render: {
         fillStyle: '#000000'
       }
     });
-    Body.setAngle(baseLine, 135 );
+    // Body.setAngle(baseLine, 135 );
     World.add(this.engine.world, baseLine);
   }
 
@@ -97,15 +96,17 @@ export class CoolBuyBtnComponent {
   createArrow() {
     let arrow: Body[] = [];
 
+    let yIndex = 30;
+
     let startX = 60;
     for (let i = 0 ; i < 13 ; i++) {
-      arrow.push(this.getABox(startX, 40));
+      arrow.push(this.getABox(startX, yIndex));
       startX = startX + 10;
     }
 
     // 往後退2格造出上方的方塊
     let arrowUpX = startX - 20;
-    let arrowUpY = 40 - 10
+    let arrowUpY = yIndex - 10
     arrow.push(this.getABox(arrowUpX , arrowUpY));
 
     // 往後退1格造出最上方的方塊
@@ -115,7 +116,7 @@ export class CoolBuyBtnComponent {
 
     // 往後退2格 造出下方的方塊
     let arrowDownX = startX - 20;
-    let arrowDownY = 40 + 10
+    let arrowDownY = yIndex + 10
     arrow.push(this.getABox(arrowDownX , arrowDownY));
 
     // 往後退1格 造出最下方的方塊
