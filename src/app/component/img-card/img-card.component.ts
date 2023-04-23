@@ -8,9 +8,14 @@ import {Component, Input} from '@angular/core';
 export class ImgCardComponent {
 
   @Input()
+  name = '';
+
+  @Input()
   primaryImageSrc = '';
   @Input()
   secondaryImageSrc = '';
+
+
 
   imgSrc = 'https://picsum.photos/200/200';
 

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {ProductDAOService} from "../../service/product-dao.service";
+import {Product} from "../../entity/Product";
 
 @Component({
   selector: 'app-home-page',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
+
+
+  products: Product[] = [];
+
+  constructor(
+      private productDAOService: ProductDAOService
+  ) {
+    this.getProduct();
+  }
+  async getProduct() {
+    this.products = await this.productDAOService.getProducts();
+  }
 
 }
