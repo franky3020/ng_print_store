@@ -21,4 +21,8 @@ export class HomePageComponent {
     this.products = await this.productDAOService.getProducts();
   }
 
+  doSomeThing() {
+    // 先為空
+  }
+
 }

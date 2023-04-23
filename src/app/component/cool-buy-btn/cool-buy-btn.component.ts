@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
 import {Bodies, Body, Engine, Render, Runner, World} from 'matter-js'
 import * as p5 from 'p5';
 
@@ -68,7 +68,10 @@ export class CoolBuyBtnComponent {
     return Bodies.rectangle(x, y, 10, 10, {
       render: {
         fillStyle: '#000000',
-      }
+      },
+      frictionAir: 0,
+      friction: 0.005,
+      restitution: 0.9
     });
   }
 
@@ -81,16 +84,6 @@ export class CoolBuyBtnComponent {
     });
     // Body.setAngle(baseLine, 135 );
     World.add(this.engine.world, baseLine);
-  }
-
-  createBall() {
-    let ball = Bodies.circle(200, 0, 40, {
-      render: {
-        fillStyle: '#000000'
-      }
-    });
-
-    World.add(this.engine.world, ball);
   }
 
   createArrow() {
