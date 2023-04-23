@@ -14,8 +14,8 @@ describe('ProductDAOService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should be one', () => {
-    let product = service.getProduct();
+  it('should be one', async () => {
+    let product = await service.getProduct();
     expect(product.id).toBe('1');
   });
 });
