@@ -8,9 +8,15 @@ pipeline {
                 sh 'echo "PATH = ${PATH}"'
             }
         }
-        stage('add jdbc to workspace') {
+        stage('remove old web server') {
+                    steps {
+                        sh 'docker rm -f franky_print_3d_web || true'
+                    }
+                }
+        stage('deploy web server') {
             steps {
-                sh 'echo "pwd = ${pwd}"'
+                sh 'docker build -t franky_print_3d_web .'
+                sh 'docker run -d -p 37000:80 --name franky_print_3d_web franky_print_3d_web'
             }
         }
 
