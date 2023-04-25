@@ -2,10 +2,10 @@
 .typing {
     white-space: nowrap;
     overflow: hidden;
-    animation: typing 2s steps(15), typingBlink .5s step-end 8 alternate;
+    animation: typingWidth 2s steps(15), typingBlink .5s step-end 8 alternate;
 }
 
-@keyframes typing {
+@keyframes typingWidth {
     from {
         width: 0
     }
