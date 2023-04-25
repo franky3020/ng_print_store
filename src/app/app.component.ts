@@ -25,6 +25,6 @@ export class AppComponent {
   }
 
   setAChickenSoup() {
-    this.chickenSoup = this.chickenSoupService.getPrimaryOne();
+    this.chickenSoup = this.chickenSoupService.getRandomOne();
   }
 }
