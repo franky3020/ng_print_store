@@ -1,8 +1,15 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {ChickenSoupService} from "./service/chicken-soup.service";
+import {TopContextGenerator} from "./service/TopContextGenerator";
 @Component({
   selector: 'app-root',
+  providers: [
+    {
+      provide: TopContextGenerator,
+      useClass: ChickenSoupService
+    }
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -13,7 +20,7 @@ export class AppComponent {
 
   constructor(
       private router: Router,
-      private chickenSoupService: ChickenSoupService) {
+      private chickenSoupService: TopContextGenerator) {
   }
 
   ngOnInit() {
@@ -25,6 +32,6 @@ export class AppComponent {
   }
 
   setAChickenSoup() {
-    this.chickenSoup = this.chickenSoupService.getRandomOne();
+    this.chickenSoup = this.chickenSoupService.getOneContext();
   }
 }

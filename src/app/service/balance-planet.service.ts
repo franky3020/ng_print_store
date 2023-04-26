@@ -51,7 +51,7 @@ export class BalancePlanetService {
             other: "franky"
         }
 
-        const target = { a: 1, b: 2, other: other};
+        const target = {a: 1, b: 2, other: other};
 
 
         const copyTarget = _.cloneDeep(target);
