@@ -49,7 +49,7 @@ export class TestMatterJsPageComponent {
         let boxA = this.getABox(sketch.mouseX, sketch.mouseY);
         World.add(engine.world, [boxA]);
 
-        if (!this.isEngineRun && engine.world.bodies.length > 25) {
+        if (!this.isEngineRun && engine.world.bodies.length > 10) {
           Runner.run(engine); // 啟動物理引擎
           this.isEngineRun = true;
         }

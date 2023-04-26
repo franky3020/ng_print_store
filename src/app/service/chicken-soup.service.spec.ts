@@ -16,26 +16,16 @@ describe('ChickenSoupForTheSoulGeneratorService', () => {
 
   it('should get PrimaryOne content at morning', () => {
 
-    let service = TestBed.inject(ChickenSoupService);
-
-    service.isAfternoon = () => {
-      return false;
-    };
-
+    spyOn(service, 'isAfternoon').and.returnValue(false);
     let content = service.getPrimaryOne();
-    expect(content).toBe('但凡精緻好看的，都是暗地裡下過功夫的');
+    expect(content).toBe('工作進度上越快落後，你就會有越充足的時間趕上');
   });
 
   it('should get PrimaryOne content at morning', () => {
 
-    let service = TestBed.inject(ChickenSoupService);
-
-    service.isAfternoon = () => {
-      return true;
-    };
-
+    spyOn(service, 'isAfternoon').and.returnValue(true);
     let content = service.getPrimaryOne();
-    expect(content).toBe('下午了 不需要心靈雞湯了');
+    expect(content).toBe('為什麼我們沒有時間把事情做對，卻總有時間把事情砍掉重練？');
   });
 
 });
