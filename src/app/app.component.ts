@@ -3,6 +3,9 @@ import {Router, ActivatedRoute, ParamMap} from '@angular/router';
 import {ChickenSoupService} from "./service/chicken-soup.service";
 import {TopContextGenerator} from "./service/TopContextGenerator";
 import {EnvironmentConfigService} from "./service/environment-config.service";
+import {LoginService} from "./service/login.service";
+import {UserInfo} from "./singleton/UserInfo";
+import {User} from "./entity/User";
 
 @Component({
   selector: 'app-root',
@@ -21,16 +24,22 @@ export class AppComponent implements OnInit {
   chickenSoup = '';
   
   isUseMockData = false;
+  user: User = new User(0, 'unknow');
 
   constructor(
     private router: Router,
     private chickenSoupService: TopContextGenerator,
-    private environmentConfigService: EnvironmentConfigService) {
+    private environmentConfigService: EnvironmentConfigService,
+    private loginService: LoginService) {
   }
 
   ngOnInit() {
     this.setAChickenSoup();
     this.isUseMockData = this.environmentConfigService.getUseMockData();
+    const user = UserInfo.getInstance().user;
+    if(user) {
+      this.user = user;
+    }
   }
 
   goToHomePage() {
@@ -45,5 +54,23 @@ export class AppComponent implements OnInit {
   toggleUseMockData() {
     this.environmentConfigService.toggleUseMockData();
     this.isUseMockData = this.environmentConfigService.getUseMockData();
+  }
+
+  async login() {
+    try {
+      const jwt= await this.loginService.getJWT('xxxxxx@gmail.com', '11111111');
+      UserInfo.getInstance().setUserFromJWT(jwt);
+      const user = UserInfo.getInstance().user;
+      if (user) {
+        this.user = user;
+      }
+    } catch (err) {
+      console.error("login 失敗");
+    }
+  }
+
+  logout() {
+    UserInfo.getInstance().setUserWhenLogout();
+    this.user = new User(0, 'unknow');
   }
 }

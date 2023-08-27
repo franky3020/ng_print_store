@@ -17,11 +17,23 @@
     </div>
 
     <div class="flex h-full items-center justify-end" >
-        <p class="m-2" routerLink="demo-component-page">demo-component</p>
-        <p class="m-2" routerLink="test-matter-js-page">test-matter</p>
+        
+        <div class="hover:bg-emerald-300 p-1 rounded-full" >
+            <app-img-icon *ngIf="!user.isLogin" (click)="login()" imgName="login" [height]="4"></app-img-icon>
+        </div>
+
+        
+        <p class="m-2" *ngIf="user.isLogin" >Hi {{user.name}}</p>
+
+        <div class="hover:bg-emerald-300 p-1 rounded-full" >
+            <app-img-icon *ngIf="user.isLogin" (click)="logout()" imgName="logout" [height]="4"></app-img-icon>
+        </div>
+        
         <p class="m-2" *ngIf="isUseMockData" (click)="toggleUseMockData()">Mock Data</p>
         <p class="m-2" *ngIf="!isUseMockData" (click)="toggleUseMockData()">True Data</p>
     </div>
+    
+    
 
 </div>
 
