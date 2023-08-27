@@ -14,6 +14,7 @@ import { CoolBuyBtnComponent } from './component/cool-buy-btn/cool-buy-btn.compo
 import { ImgIconComponent } from './component/img-icon/img-icon.component';
 import { SearchInputComponent } from './component/search-input/search-input.component';
 import { HttpClientModule }    from '@angular/common/http';
+import { FavoriteBtnComponent } from './component/favorite-btn/favorite-btn.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule }    from '@angular/common/http';
     TestMatterJsPageComponent,
     CoolBuyBtnComponent,
     ImgIconComponent,
-    SearchInputComponent
+    SearchInputComponent,
+    FavoriteBtnComponent
   ],
   imports: [
     BrowserModule,

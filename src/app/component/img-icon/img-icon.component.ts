@@ -21,7 +21,7 @@ export class ImgIconComponent implements OnInit {
 
   ngOnInit(): void {
     if (typeof this.height === "number") {
-      this.heightPx = '' + this.height + 'px';
+      this.heightPx = '' + this.height + 'rem';
     }
   }
   
