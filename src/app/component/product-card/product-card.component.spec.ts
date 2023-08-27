@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ImgCardComponent } from './img-card.component';
+import { ProductCardComponent } from './product-card.component';
 import {Component} from "@angular/core";
 import {MockCoolBuyBtnComponent} from "../cool-buy-btn/cool-buy-btn.component";
 
 describe('ImgCardComponent', () => {
-  let component: ImgCardComponent;
-  let fixture: ComponentFixture<ImgCardComponent>;
+  let component: ProductCardComponent;
+  let fixture: ComponentFixture<ProductCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ImgCardComponent, MockButtonWithTipComponent, MockCoolBuyBtnComponent ]
+      declarations: [ ProductCardComponent, MockButtonWithTipComponent, MockCoolBuyBtnComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ImgCardComponent);
+    fixture = TestBed.createComponent(ProductCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

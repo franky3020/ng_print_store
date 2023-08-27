@@ -27,7 +27,7 @@ describe('HomePageComponent', () => {
 
 
 @Component({
-  selector: 'app-img-card',
+  selector: 'app-product-card',
   template: ''
 })
 class MockImgCardComponent {

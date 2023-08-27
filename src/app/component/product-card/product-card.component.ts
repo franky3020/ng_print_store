@@ -1,11 +1,11 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
-  selector: 'app-img-card',
-  templateUrl: './img-card.component.html',
-  styleUrls: ['./img-card.component.css']
+  selector: 'app-product-card',
+  templateUrl: './product-card.component.html',
+  styleUrls: ['./product-card.component.css']
 })
-export class ImgCardComponent {
+export class ProductCardComponent {
 
   @Input()
   name = '';
