@@ -2,7 +2,7 @@ export class Product {
     id = '';
     price: number;
     name = '';
-    createUserId = '';
+    createUserName = '';
     describe = '';
     photos: string[] = [];
 
@@ -10,7 +10,7 @@ export class Product {
         this.id = builder.id;
         this.price = builder.price;
         this.name = builder.name;
-        this.createUserId = builder.createUserId;
+        this.createUserName = builder.createUserName;
         this.describe = builder.describe;
         this.photos = builder.photos;
     }
@@ -23,7 +23,7 @@ export class ProductBuilder {
     private _id: string;
     private _price: number;
     private _name: string;
-    private _createUserId = '';
+    private _createUserName = '';
     private _describe = '';
     private _photos: string[] = [];
 
@@ -33,13 +33,14 @@ export class ProductBuilder {
         this._name = name;
     }
 
-    setCreateUserId(createUserId: string): ProductBuilder{
-        this._createUserId = createUserId;
-        return this;
-    }
 
     setDescribe(describe: string): ProductBuilder{
         this._describe = describe;
+        return this;
+    }
+
+    setCreateUserName(createUserName: string): ProductBuilder{
+        this._createUserName = createUserName;
         return this;
     }
 
@@ -65,8 +66,8 @@ export class ProductBuilder {
         return this._name;
     }
 
-    get createUserId(): string {
-        return this._createUserId;
+    get createUserName(): string {
+        return this._createUserName;
     }
 
     get describe(): string {

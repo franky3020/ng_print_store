@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ProductDAOService} from "../../service/product-dao.service";
 import {Product} from "../../entity/Product";
+import {UserDaoService} from "../../service/user-dao.service";
 
 @Component({
   selector: 'app-home-page',
@@ -13,7 +14,8 @@ export class HomePageComponent {
   products: Product[] = [];
 
   constructor(
-      private productDAOService: ProductDAOService
+      private productDAOService: ProductDAOService,
+      private userDaoService: UserDaoService
   ) {
     this.getProduct();
   }

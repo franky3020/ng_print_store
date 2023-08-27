@@ -3,6 +3,7 @@ import {Product, ProductBuilder} from "../entity/Product";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {GetProductRes, getProductRes2Product} from "../api-req-res/getProductRes";
 import {EnvironmentConfigService} from "./environment-config.service";
+import {environment} from "../../environment";
 
 @Injectable({
     providedIn: 'root'
@@ -19,12 +20,15 @@ export class ProductDAOService {
         }
 
         return new Promise((resolve) => {
-            this.http.get<GetProductRes[]>('http://frankyya.com:35002/api/product').subscribe((res) => {
+
+            const baseUrl = environment.api_test_url;
+            this.http.get<GetProductRes[]>(baseUrl + '/api/product').subscribe((res) => {
                 let getProductResArray: GetProductRes[] = res;
                 console.log("getProductRes test");
                 console.log(getProductResArray);
                 getProductResArray.forEach((item) => {
                     const product= getProductRes2Product(item);
+                    
                     products.push(product);
                 })
                 return resolve(products);
@@ -41,6 +45,7 @@ export class ProductDAOService {
                     let productBuilder = new ProductBuilder('1', 500, 'toy');
                     let product = productBuilder
                         .setDescribe('is a good toy')
+                        .setCreateUserName('test')
                         .build();
                     products.push(product);
                 }

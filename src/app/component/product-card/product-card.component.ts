@@ -16,6 +16,9 @@ export class ProductCardComponent implements OnInit {
   @Input()
   imgSrcArray: string[] = [];
 
+  @Input()
+  createUser = '';
+
   @Output() nextBtnClick = new EventEmitter();
 
   imgSrc = 'https://picsum.photos/200/200';
