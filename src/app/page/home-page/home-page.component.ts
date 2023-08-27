@@ -18,15 +18,11 @@ export class HomePageComponent {
     this.getProduct();
   }
   async getProduct() {
-    setInterval(async () => {
       // TODO: 需檢查有無更新 無則不需要刷新 所以API需要有更新時間
-      
       let products = await this.productDAOService.getProducts();
       if (this.products.length !== products.length) {
         this.products = products
       }
-      
-    }, 500);
   }
 
   doSomeThing() {

@@ -11,6 +11,9 @@ export class ImgCardComponent {
   name = '';
 
   @Input()
+  productPrice = 0;
+
+  @Input()
   primaryImageSrc = '';
   @Input()
   secondaryImageSrc = '';

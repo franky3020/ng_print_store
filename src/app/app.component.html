@@ -19,7 +19,8 @@
     <div class="flex h-full items-center justify-end" >
         <p class="m-2" routerLink="demo-component-page">demo-component</p>
         <p class="m-2" routerLink="test-matter-js-page">test-matter</p>
-        <p class="m-2" (click)="test()">test</p>
+        <p class="m-2" *ngIf="isUseMockData" (click)="toggleUseMockData()">Mock Data</p>
+        <p class="m-2" *ngIf="!isUseMockData" (click)="toggleUseMockData()">True Data</p>
     </div>
 
 </div>

@@ -19,6 +19,8 @@ export class AppComponent implements OnInit {
   title = 'ng_print_store';
 
   chickenSoup = '';
+  
+  isUseMockData = false;
 
   constructor(
     private router: Router,
@@ -28,6 +30,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.setAChickenSoup();
+    this.isUseMockData = this.environmentConfigService.getUseMockData();
   }
 
   goToHomePage() {
@@ -39,9 +42,8 @@ export class AppComponent implements OnInit {
     this.chickenSoup = this.chickenSoupService.getOneContext();
   }
 
-  test() {
+  toggleUseMockData() {
     this.environmentConfigService.toggleUseMockData();
-    console.log("this.environmentConfigService.getUseMockData()");
-    console.log(this.environmentConfigService.getUseMockData());
+    this.isUseMockData = this.environmentConfigService.getUseMockData();
   }
 }

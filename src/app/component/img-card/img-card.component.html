@@ -4,7 +4,7 @@
                         py-1
                         bg-white">
 
-    <div class="flex items-center mb-4 ml-1 justify-between">
+    <div class="flex items-center mb-4 ml-2 justify-between">
         <div class="flex">
             <img
                     class="rounded-full"
@@ -26,20 +26,20 @@
              (mouseenter)="onMouseEnterTheImg()"
              (mouseleave)="onMouseOutTheImg()"
              [src]="imgSrc"
-             alt="Katherine Johnson"
         />
     </div>
 
     <div class="my-2 ml-8">
         <p> {{name}} </p>
+        <div class="flex items-center justify-between">
+            <div class="flex">
+                
+                <app-img-icon imgName="dollar_icon" [height]="2"></app-img-icon>
+                <p class="text-lg">{{productPrice}}</p>
+            </div>
+            
+            <app-circle-btn class="mr-5" iconName="next_arrow_icon"></app-circle-btn>
+        </div>
+        
     </div>
-
-    <div class="flex justify-center m-4 ">
-<!--        原先的 buy button-->
-<!--        <app-button-with-tip tipContent="test">-->
-<!--            Buy-->
-<!--        </app-button-with-tip>-->
-        <app-cool-buy-btn (click)="nextBtnClick.emit()"></app-cool-buy-btn>
-    </div>
-
 </div>
