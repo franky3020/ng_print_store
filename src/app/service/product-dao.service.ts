@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {GetProductRes, getProductRes2Product} from "../api-req-res/getProductRes";
 import {EnvironmentConfigService} from "./environment-config.service";
 import {environment} from "../../environment";
+import {AddProductReq} from "../api-req-res/AddProductReq";
 
 @Injectable({
     providedIn: 'root'
@@ -33,6 +34,45 @@ export class ProductDAOService {
                 })
                 return resolve(products);
             });
+        });
+    }
+
+    addNewProduct(jwt: string): Promise<void> {
+        return new Promise((resolve, reject) => {
+            const baseUrl = environment.api_test_url;
+            
+            let addProductReq = new AddProductReq();
+            addProductReq.name = 'test-1';
+            addProductReq.create_user_id = 1;
+            addProductReq.price = 1000;
+            addProductReq.describe = 'test';
+            
+
+            const headers_object = new HttpHeaders().set("Authorization", "Bearer " + jwt);
+            this.http.post(baseUrl + "/api/product", addProductReq, {
+                headers: headers_object
+            }).subscribe((res) => {
+                return resolve();
+            }, (error) => {
+                return reject();
+            });
+            
+        });
+    }
+
+    deleteProduct(id: number, jwt: string): Promise<void> {
+        return new Promise((resolve, reject) => {
+            const baseUrl = environment.api_test_url;
+
+            const headers_object = new HttpHeaders().set("Authorization", "Bearer " + jwt);
+            this.http.delete(baseUrl + "/api/product/" + id.toString(), {
+                headers: headers_object
+            }).subscribe((res) => {
+                return resolve();
+            }, (error) => {
+                return reject();
+            });
+
         });
     }
     

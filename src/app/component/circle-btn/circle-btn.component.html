@@ -1,7 +1,12 @@
 
 
 
-<div class="rounded-full bg-emerald-200 p-1 drop-shadow-lg hover:bg-emerald-600 relative z-50 w-12 h-12">
+<div *ngIf="color === Color.green" class="rounded-full bg-emerald-200 p-1 drop-shadow-lg hover:bg-emerald-600 relative z-50 w-12 h-12">
+    <app-img-icon [imgName]="iconName">
+    </app-img-icon>
+</div>
+
+<div *ngIf="color === Color.black" class="rounded-full bg-slate-100 hover:bg-current p-1 drop-shadow-lg relative z-50 w-12 h-12">
     <app-img-icon [imgName]="iconName">
     </app-img-icon>
 </div>

@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Color} from "../circle-btn/circle-btn.component";
 
 @Component({
   selector: 'app-product-card',
@@ -19,11 +20,18 @@ export class ProductCardComponent implements OnInit {
   @Input()
   createUser = '';
 
+  @Input()
+  hasDeleteBtn = false;
+
   @Output() nextBtnClick = new EventEmitter();
 
   imgSrc = 'https://picsum.photos/200/200';
   
   imgIndex = 0;
+  
+  get Color() {
+    return Color;
+  }
 
   constructor() {
   }

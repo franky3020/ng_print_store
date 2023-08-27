@@ -6,6 +6,7 @@ import {EnvironmentConfigService} from "./service/environment-config.service";
 import {LoginService} from "./service/login.service";
 import {UserInfo} from "./singleton/UserInfo";
 import {User} from "./entity/User";
+import {ProductDAOService} from "./service/product-dao.service";
 
 @Component({
   selector: 'app-root',
@@ -30,7 +31,8 @@ export class AppComponent implements OnInit {
     private router: Router,
     private chickenSoupService: TopContextGenerator,
     private environmentConfigService: EnvironmentConfigService,
-    private loginService: LoginService) {
+    private loginService: LoginService,
+    private productDAOService: ProductDAOService) {
   }
 
   ngOnInit() {
@@ -72,5 +74,26 @@ export class AppComponent implements OnInit {
   logout() {
     UserInfo.getInstance().setUserWhenLogout();
     this.user = new User(0, 'unknow');
+  }
+
+  async addProduct() {
+    if (this.user) {
+      try {
+        await this.productDAOService.addNewProduct(this.user.jwt);
+      } catch (err) {
+        console.error("addProduct has error");
+      }
+    }
+    
+  }
+
+  async deleteProduct() {
+    if (this.user) {
+      try {
+        await this.productDAOService.deleteProduct(3, this.user.jwt);
+      } catch (err) {
+        console.error("addProduct has error");
+      }
+    }
   }
 }

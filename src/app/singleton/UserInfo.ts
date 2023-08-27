@@ -48,7 +48,7 @@ export class UserInfo {
     
       this.clearUserData();
       localStorage.setItem(UserInfo.TOKEN_NAME, token);
-      this.setUserWhenlogin(decode.id, decode.nickname);
+      this.setUserWhenlogin(decode.id, decode.nickname, token);
       
     } else {
       throw new Error("error when jwt decode");
@@ -56,9 +56,10 @@ export class UserInfo {
 
   }
 
-  setUserWhenlogin(id: number, nickname: string) {
+  setUserWhenlogin(id: number, nickname: string, jwt: string) {
     this.user = new User(id, nickname);
     this.user.isLogin = true;
+    this.user.jwt = jwt;
   }
 
   setUserWhenLogout() {
