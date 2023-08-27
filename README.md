@@ -1,8 +1,8 @@
 # Demo 3D列印商店_網頁專案 (Angular)
 
 
-自動部署的 web 位置, 透過Jenkins pipeline + Docker 實作
+## 環境
+1. Node:18.17.0
 
-http://frankyya.com:37000/
 
 

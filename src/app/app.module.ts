@@ -11,6 +11,10 @@ import {NgOptimizedImage} from "@angular/common";
 import { TypingTextComponent } from './component/typing-text/typing-text.component';
 import { TestMatterJsPageComponent } from './page/test-matter-js-page/test-matter-js-page.component';
 import { CoolBuyBtnComponent } from './component/cool-buy-btn/cool-buy-btn.component';
+import { ImgIconComponent } from './component/img-icon/img-icon.component';
+import { SearchInputComponent } from './component/search-input/search-input.component';
+import { HttpClientModule }    from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,12 +24,15 @@ import { CoolBuyBtnComponent } from './component/cool-buy-btn/cool-buy-btn.compo
     ImgCardComponent,
     TypingTextComponent,
     TestMatterJsPageComponent,
-    CoolBuyBtnComponent
+    CoolBuyBtnComponent,
+    ImgIconComponent,
+    SearchInputComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

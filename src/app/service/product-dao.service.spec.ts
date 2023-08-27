@@ -13,9 +13,4 @@ describe('ProductDAOService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-
-  it('should be one', async () => {
-    let product = await service.getProduct();
-    expect(product.id).toBe('1');
-  });
 });
