@@ -1,11 +1,11 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.css']
 })
-export class ProductCardComponent {
+export class ProductCardComponent implements OnInit {
 
   @Input()
   name = '';
@@ -14,33 +14,45 @@ export class ProductCardComponent {
   productPrice = 0;
 
   @Input()
-  primaryImageSrc = '';
-  @Input()
-  secondaryImageSrc = '';
+  imgSrcArray: string[] = [];
 
   @Output() nextBtnClick = new EventEmitter();
 
-
-
   imgSrc = 'https://picsum.photos/200/200';
+  
+  imgIndex = 0;
 
   constructor() {
   }
 
   ngOnInit() {
-    this.imgSrc = this.primaryImageSrc;
-  }
-
-  onMouseEnterTheImg() {
-    this.imgSrc = this.secondaryImageSrc;
-  }
-
-  onMouseOutTheImg() {
-    this.imgSrc = this.primaryImageSrc;
+    if (this.imgSrcArray.length > 0) {
+      this.imgSrc = this.imgSrcArray[this.imgIndex];
+    }
   }
 
   test() {
     console.log("btn Click");
   }
 
+  nextImg() {
+    
+    const imgArraySize = this.imgSrcArray.length;
+    this.imgIndex++;
+    if (this.imgIndex >= imgArraySize) {
+      this.imgIndex = 0;
+    }
+    this.imgSrc = this.imgSrcArray[this.imgIndex];
+  }
+
+  previousImg() {
+
+    const imgArrayLastIndex = this.imgSrcArray.length - 1;
+    
+    this.imgIndex--;
+    if (this.imgIndex < 0) {
+      this.imgIndex = imgArrayLastIndex;
+    }
+    this.imgSrc = this.imgSrcArray[this.imgIndex];
+  }
 }

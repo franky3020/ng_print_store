@@ -1,12 +1,12 @@
-
-
 <div class="flex">
     <div *ngFor="let product of products" class="m-8">
         <app-product-card [name]="product.name"
-                      [productPrice]="product.price"
-                      primaryImageSrc="https://picsum.photos/id/56/200/200"
-                      secondaryImageSrc="https://picsum.photos/id/77/200/200"
-                      (nextBtnClick)="doSomeThing()"
+                          [productPrice]="product.price"
+                          [imgSrcArray]="['https://picsum.photos/id/56/200/200',
+                                          'https://picsum.photos/id/77/200/200',
+                                          'https://picsum.photos/id/76/200/200',
+                                          'https://picsum.photos/id/75/200/200']"
+                          (nextBtnClick)="doSomeThing()"
         ></app-product-card>
     </div>
 </div>
