@@ -1,5 +1,6 @@
 import {User} from "../entity/User";
 import jwt_decode from 'jwt-decode';
+import {Subject} from "rxjs";
 
 export class UserInfo {
   
@@ -7,6 +8,8 @@ export class UserInfo {
   
   private static instance: UserInfo;
   static readonly TOKEN_NAME = "Print-Store-JWT";
+
+  updateUserDataSubject: Subject<void> = new Subject<void>();
 
   private constructor() {
   }
@@ -60,10 +63,12 @@ export class UserInfo {
     this.user = new User(id, nickname);
     this.user.isLogin = true;
     this.user.jwt = jwt;
+    this.updateUserDataSubject.next();
   }
 
   setUserWhenLogout() {
     this.clearUserData();
+    this.updateUserDataSubject.next();
   }
 
   clearUserData() {

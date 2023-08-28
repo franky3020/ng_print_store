@@ -19,8 +19,7 @@ export class HomePageComponent implements OnInit {
 
   user: User = new User(0, "unknown");
 
-
-  pageDestroy: Subject<any> = new Subject<any>();
+  pageDestroy: Subject<void> = new Subject<void>();
 
   constructor(
       private productDAOService: ProductDAOService,
@@ -30,18 +29,28 @@ export class HomePageComponent implements OnInit {
     this.productDAOService.updateProductSubject.pipe(takeUntil(this.pageDestroy)).subscribe(() => {
       this.getProduct();
     });
+
+    UserInfo.getInstance().updateUserDataSubject.pipe(takeUntil(this.pageDestroy)).subscribe(() => {
+      this.updateUserInfo();
+    })
   }
 
   ngOnInit(): void {
-      const user = UserInfo.getInstance().user;
-      if (user) {
-        this.user = user;
-      }
+      this.updateUserInfo();
+  }
+  
+  updateUserInfo() {
+    const user = UserInfo.getInstance().user;
+    if (user) {
+      this.user = user;
+    } else {
+      this.user =  new User(0, "unknown");
+    }
   }
 
   ngOnDestroy(): void {
     if (this.pageDestroy) {
-      // this.pageDestroy.next();
+      this.pageDestroy.next();
       this.pageDestroy.complete();
     }
   }
