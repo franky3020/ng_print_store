@@ -8,6 +8,9 @@ Web: http://frankyya.com:36010/
 
 後端在: [print-3d-backend](https://github.com/franky3020/DogeStore)
 
+
+[舊版本連結](https://github.com/franky3020/doge_store_front)
+
 ## 環境
 1. Node:18.17.0
 
