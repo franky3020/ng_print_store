@@ -14,7 +14,7 @@ export class LoginService {
   // TODO: 需實做錯誤處理
   getJWT(email: string, password: string): Promise<string> {
     return new Promise((resolve, reject) => {
-      const baseUrl = environment.api_test_url;
+      const baseUrl = environment.api_url;
       const loginReq = new LoginReq(email, password);
       this.http.post<JWTRes>(baseUrl + '/api/user/login', loginReq).subscribe((res) => {
         return resolve(res.token);

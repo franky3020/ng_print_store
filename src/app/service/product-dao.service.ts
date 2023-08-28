@@ -25,7 +25,7 @@ export class ProductDAOService {
 
         return new Promise((resolve) => {
 
-            const baseUrl = environment.api_test_url;
+            const baseUrl = environment.api_url;
             this.http.get<GetProductRes[]>(baseUrl + '/api/product').subscribe((res) => {
                 let getProductResArray: GetProductRes[] = res;
                 console.log("getProductRes test");
@@ -41,12 +41,12 @@ export class ProductDAOService {
 
     addNewProduct(jwt: string): Promise<void> {
         return new Promise((resolve, reject) => {
-            const baseUrl = environment.api_test_url;
+            const baseUrl = environment.api_url;
             
             let addProductReq = new AddProductReq();
             addProductReq.name = new Date().toString();
             addProductReq.create_user_id = 1;
-            addProductReq.price = 1000;
+            addProductReq.price = Math.floor(Math.random() * 1000);
             addProductReq.describe = new Date().toString();
             
 
@@ -65,7 +65,7 @@ export class ProductDAOService {
 
     deleteProduct(id: number, jwt: string): Promise<void> {
         return new Promise((resolve, reject) => {
-            const baseUrl = environment.api_test_url;
+            const baseUrl = environment.api_url;
 
             const headers_object = new HttpHeaders().set("Authorization", "Bearer " + jwt);
             this.http.delete(baseUrl + "/api/product/" + id.toString(), {

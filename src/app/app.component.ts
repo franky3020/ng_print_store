@@ -60,7 +60,7 @@ export class AppComponent implements OnInit {
 
   async login() {
     try {
-      const jwt= await this.loginService.getJWT('xxxxxx@gmail.com', '11111111');
+      const jwt= await this.loginService.getJWT('xxxxxx@gmail.com', '12345678');
       UserInfo.getInstance().setUserFromJWT(jwt);
       const user = UserInfo.getInstance().user;
       if (user) {
