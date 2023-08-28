@@ -7,6 +7,7 @@ import {LoginService} from "./service/login.service";
 import {UserInfo} from "./singleton/UserInfo";
 import {User} from "./entity/User";
 import {ProductDAOService} from "./service/product-dao.service";
+import {BtnSize} from "./component/circle-btn/circle-btn.component";
 
 @Component({
   selector: 'app-root',
@@ -42,6 +43,10 @@ export class AppComponent implements OnInit {
     if(user) {
       this.user = user;
     }
+  }
+  
+  get BtnSize() {
+    return BtnSize;
   }
 
   goToHomePage() {

@@ -7,6 +7,12 @@ export enum Color {
   black,
   green
 }
+
+export enum BtnSize {
+  small,
+  big
+}
+
 @Component({
   selector: 'app-circle-btn',
   templateUrl: './circle-btn.component.html',
@@ -19,6 +25,9 @@ export class CircleBtnComponent implements OnInit{
   
   @Input()
   color = Color.green;
+
+  @Input()
+  btnSize = BtnSize.small;
   
   ngOnInit() {
     
@@ -30,4 +39,5 @@ export class CircleBtnComponent implements OnInit{
   }
 
   protected readonly Color = Color;
+  protected readonly BtnSize = BtnSize;
 }
