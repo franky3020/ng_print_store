@@ -86,14 +86,4 @@ export class AppComponent implements OnInit {
     }
     
   }
-
-  async deleteProduct() {
-    if (this.user) {
-      try {
-        await this.productDAOService.deleteProduct(3, this.user.jwt);
-      } catch (err) {
-        console.error("addProduct has error");
-      }
-    }
-  }
 }

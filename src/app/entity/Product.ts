@@ -1,5 +1,5 @@
 export class Product {
-    id = '';
+    id = 0;
     price: number;
     name = '';
     createUserName = '';
@@ -20,14 +20,14 @@ export class Product {
 
 export class ProductBuilder {
 
-    private _id: string;
+    private _id: number;
     private _price: number;
     private _name: string;
     private _createUserName = '';
     private _describe = '';
     private _photos: string[] = [];
 
-    constructor(id: string, price: number, name: string) {
+    constructor(id: number, price: number, name: string) {
         this._id = id;
         this._price = price;
         this._name = name;
@@ -54,7 +54,7 @@ export class ProductBuilder {
     }
 
 
-    get id(): string {
+    get id(): number {
         return this._id;
     }
 

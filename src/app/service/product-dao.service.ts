@@ -5,11 +5,14 @@ import {GetProductRes, getProductRes2Product} from "../api-req-res/getProductRes
 import {EnvironmentConfigService} from "./environment-config.service";
 import {environment} from "../../environment";
 import {AddProductReq} from "../api-req-res/AddProductReq";
+import {Subject} from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
 export class ProductDAOService {
+
+    updateProductSubject: Subject<void> = new Subject<void>();
 
     constructor(private http: HttpClient, private environmentConfigService: EnvironmentConfigService) {
     }
@@ -29,7 +32,6 @@ export class ProductDAOService {
                 console.log(getProductResArray);
                 getProductResArray.forEach((item) => {
                     const product= getProductRes2Product(item);
-                    
                     products.push(product);
                 })
                 return resolve(products);
@@ -42,16 +44,17 @@ export class ProductDAOService {
             const baseUrl = environment.api_test_url;
             
             let addProductReq = new AddProductReq();
-            addProductReq.name = 'test-1';
+            addProductReq.name = new Date().toString();
             addProductReq.create_user_id = 1;
             addProductReq.price = 1000;
-            addProductReq.describe = 'test';
+            addProductReq.describe = new Date().toString();
             
 
             const headers_object = new HttpHeaders().set("Authorization", "Bearer " + jwt);
             this.http.post(baseUrl + "/api/product", addProductReq, {
                 headers: headers_object
             }).subscribe((res) => {
+                this.updateProductSubject.next();
                 return resolve();
             }, (error) => {
                 return reject();
@@ -68,6 +71,7 @@ export class ProductDAOService {
             this.http.delete(baseUrl + "/api/product/" + id.toString(), {
                 headers: headers_object
             }).subscribe((res) => {
+                this.updateProductSubject.next();
                 return resolve();
             }, (error) => {
                 return reject();
@@ -82,7 +86,7 @@ export class ProductDAOService {
             setTimeout(()=>{
 
                 for (let i = 0 ; i < 3 ; i++) {
-                    let productBuilder = new ProductBuilder('1', 500, 'toy');
+                    let productBuilder = new ProductBuilder(1, 500, 'toy');
                     let product = productBuilder
                         .setDescribe('is a good toy')
                         .setCreateUserName('test')

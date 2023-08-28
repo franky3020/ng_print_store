@@ -23,6 +23,8 @@ export class ProductCardComponent implements OnInit {
   @Input()
   hasDeleteBtn = false;
 
+  @Output() deleteBtnClick = new EventEmitter();
+
   @Output() nextBtnClick = new EventEmitter();
 
   imgSrc = 'https://picsum.photos/200/200';

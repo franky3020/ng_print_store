@@ -20,7 +20,7 @@ export class GetProductRes {
 }
 
 export const getProductRes2Product = (res: GetProductRes): Product => {
-  const productBuilder = new ProductBuilder(res.id.toString(), res.price, res.name);
+  const productBuilder = new ProductBuilder(res.id, res.price, res.name);
   productBuilder.setCreateUserName(res.create_user_name);
   productBuilder.setDescribe(res.describe);
   productBuilder.setPhotos(res.photos);

@@ -3,6 +3,8 @@
         <app-product-card [name]="product.name"
                           [productPrice]="product.price"
                           [createUser]="product.createUserName"
+                          [hasDeleteBtn]="user.isLogin"
+                          (deleteBtnClick)="clickDeleteBtn(product.id)"
                           [imgSrcArray]="['https://picsum.photos/id/56/200/200',
                                           'https://picsum.photos/id/77/200/200',
                                           'https://picsum.photos/id/76/200/200',

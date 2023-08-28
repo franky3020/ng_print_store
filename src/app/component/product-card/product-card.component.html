@@ -4,7 +4,7 @@
                         py-1
                         bg-white">
     
-    <app-circle-btn class="absolute top-[-30px] right-[-30px] " iconName="x_icon" [color]="Color.black"></app-circle-btn>
+    <app-circle-btn *ngIf="hasDeleteBtn" (click)="deleteBtnClick.emit()" class="absolute top-[-30px] right-[-30px] " iconName="x_icon" [color]="Color.black"></app-circle-btn>
 
     <div class="flex items-center mb-4 ml-2 justify-between">
         <div class="flex">
