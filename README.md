@@ -12,7 +12,7 @@ Web: http://frankyya.com:36010/
 [舊版本連結](https://github.com/franky3020/doge_store_front)
 
 ## 環境
-1. Node:18.17.0
+1. Node 版本: 18.16.0
 
 ## 部暑方法
 
