@@ -5,7 +5,6 @@
 @tailwind utilities;
 
 * {
-    font-family: monospace;
-    font-size: 16px;
+  font-family: monospace;
+  font-size: 16px;
 }
-

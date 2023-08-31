@@ -1,52 +1,56 @@
-<div class="w-80 border-double border-4
-                        rounded-lg
-                        drop-shadow-lg
-                        py-1
-                        bg-white">
-    
-    <app-circle-btn *ngIf="hasDeleteBtn" (click)="deleteBtnClick.emit()" class="absolute top-[-30px] right-[-30px]" iconName="x_icon" [color]="Color.black"></app-circle-btn>
+<div
+  class="w-80 border-double border-4 rounded-lg drop-shadow-lg py-1 bg-white"
+>
+  <app-circle-btn
+    *ngIf="hasDeleteBtn"
+    (click)="deleteBtnClick.emit()"
+    class="absolute top-[-30px] right-[-30px]"
+    iconName="x_icon"
+    [color]="Color.black"
+  ></app-circle-btn>
 
-    <div class="flex items-center mb-4 ml-2 justify-between">
-        <div class="flex">
-            <img
-                    class="rounded-full"
-                    src="https://picsum.photos/30/30"
-                    alt="Katherine Johnson"
-            />
-            <p class="ml-4">{{createUser}}</p>
-        </div>
-        
-        <div class="flex mr-3 mt-3">
-            <app-favorite-btn ></app-favorite-btn>
-        </div>
-        
+  <div class="flex items-center mb-4 ml-2 justify-between">
+    <div class="flex">
+      <img
+        class="rounded-full"
+        src="https://picsum.photos/30/30"
+        alt="Katherine Johnson"
+      />
+      <p class="ml-4">{{ createUser }}</p>
     </div>
 
-    <div class="flex justify-center items-center">
-
-        
-        <app-img-icon (click)="previousImg()" imgName="back_arrow_icon" [height]="2" class="opacity-30 hover:bg-stone-300 rounded-full"></app-img-icon>
-        
-        <img class="rounded-lg"
-             *ngIf="imgSrc !== ''"
-             [src]="imgSrc"
-        />
-        
-        <app-img-icon (click)="nextImg()" imgName="next_arrow_icon" [height]="2" class="opacity-30 hover:bg-stone-300 rounded-full"></app-img-icon>
-        
+    <div class="flex mr-3 mt-3">
+      <app-favorite-btn></app-favorite-btn>
     </div>
+  </div>
 
-    <div class="my-2 ml-8">
-        <p> {{name}} </p>
-        <div class="flex items-center justify-between">
-            <div class="flex">
-                
-                <app-img-icon imgName="dollar_icon" [height]="2"></app-img-icon>
-                <p class="text-lg">{{productPrice}}</p>
-            </div>
-            
-            <app-circle-btn class="mr-5" iconName="next_arrow_icon"></app-circle-btn>
-        </div>
-        
+  <div class="flex justify-center items-center">
+    <app-img-icon
+      (click)="previousImg()"
+      imgName="back_arrow_icon"
+      [height]="2"
+      class="opacity-30 hover:bg-stone-300 rounded-full"
+    ></app-img-icon>
+
+    <img class="rounded-lg" *ngIf="imgSrc !== ''" [src]="imgSrc" />
+
+    <app-img-icon
+      (click)="nextImg()"
+      imgName="next_arrow_icon"
+      [height]="2"
+      class="opacity-30 hover:bg-stone-300 rounded-full"
+    ></app-img-icon>
+  </div>
+
+  <div class="my-2 ml-8">
+    <p>{{ name }}</p>
+    <div class="flex items-center justify-between">
+      <div class="flex">
+        <app-img-icon imgName="dollar_icon" [height]="2"></app-img-icon>
+        <p class="text-lg">{{ productPrice }}</p>
+      </div>
+
+      <app-circle-btn class="mr-5" iconName="next_arrow_icon"></app-circle-btn>
     </div>
+  </div>
 </div>

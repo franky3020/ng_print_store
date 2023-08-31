@@ -1,21 +1,19 @@
-import {User} from "../entity/User";
+import { User } from '../entity/User';
 import jwt_decode from 'jwt-decode';
-import {Subject} from "rxjs";
+import { Subject } from 'rxjs';
 
 export class UserInfo {
-  
-  user: User|null = null;
-  
+  user: User | null = null;
+
   private static instance: UserInfo;
-  static readonly TOKEN_NAME = "Print-Store-JWT";
+  static readonly TOKEN_NAME = 'Print-Store-JWT';
 
   updateUserDataSubject: Subject<void> = new Subject<void>();
 
-  private constructor() {
-  }
+  private constructor() {}
 
   static getInstance(): UserInfo {
-    if (typeof UserInfo.instance === "undefined") {
+    if (typeof UserInfo.instance === 'undefined') {
       UserInfo.instance = new UserInfo();
     }
 
@@ -32,31 +30,28 @@ export class UserInfo {
         let jwtRes = jwt_decode(jwt);
         console.log(jwtRes);
         this.setUserFromJWT(jwt);
-      } catch(err) {
+      } catch (err) {
         // Ignore error
       }
     }
   }
 
- 
-  setUserFromJWT(token: string) { // if token can't decode, throw Error
+  setUserFromJWT(token: string) {
+    // if token can't decode, throw Error
 
     let decode = jwt_decode(token) as {
-      email: string,
-      id: number,
-      nickname: string
+      email: string;
+      id: number;
+      nickname: string;
     };
 
     if (decode) {
-    
       this.clearUserData();
       localStorage.setItem(UserInfo.TOKEN_NAME, token);
       this.setUserWhenlogin(decode.id, decode.nickname, token);
-      
     } else {
-      throw new Error("error when jwt decode");
+      throw new Error('error when jwt decode');
     }
-
   }
 
   setUserWhenlogin(id: number, nickname: string, jwt: string) {
@@ -75,5 +70,4 @@ export class UserInfo {
     this.user = null;
     localStorage.removeItem(UserInfo.TOKEN_NAME);
   }
-  
 }

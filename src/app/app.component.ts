@@ -1,30 +1,30 @@
-import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute, ParamMap} from '@angular/router';
-import {ChickenSoupService} from "./service/chicken-soup.service";
-import {TopContextGenerator} from "./service/TopContextGenerator";
-import {EnvironmentConfigService} from "./service/environment-config.service";
-import {LoginService} from "./service/login.service";
-import {UserInfo} from "./singleton/UserInfo";
-import {User} from "./entity/User";
-import {ProductDAOService} from "./service/product-dao.service";
-import {BtnSize} from "./component/circle-btn/circle-btn.component";
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ChickenSoupService } from './service/chicken-soup.service';
+import { TopContextGenerator } from './service/TopContextGenerator';
+import { EnvironmentConfigService } from './service/environment-config.service';
+import { LoginService } from './service/login.service';
+import { UserInfo } from './singleton/UserInfo';
+import { User } from './entity/User';
+import { ProductDAOService } from './service/product-dao.service';
+import { BtnSize } from './component/circle-btn/circle-btn.component';
 
 @Component({
   selector: 'app-root',
   providers: [
     {
       provide: TopContextGenerator,
-      useClass: ChickenSoupService
-    }
+      useClass: ChickenSoupService,
+    },
   ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
   title = 'ng_print_store';
 
   chickenSoup = '';
-  
+
   isUseMockData = false;
   user: User = new User(0, 'unknow');
 
@@ -33,25 +33,24 @@ export class AppComponent implements OnInit {
     private chickenSoupService: TopContextGenerator,
     private environmentConfigService: EnvironmentConfigService,
     private loginService: LoginService,
-    private productDAOService: ProductDAOService) {
-  }
+    private productDAOService: ProductDAOService,
+  ) {}
 
   ngOnInit() {
     this.setAChickenSoup();
     this.isUseMockData = this.environmentConfigService.getUseMockData();
     const user = UserInfo.getInstance().user;
-    if(user) {
+    if (user) {
       this.user = user;
     }
   }
-  
+
   get BtnSize() {
     return BtnSize;
   }
 
   goToHomePage() {
-    this.router.navigateByUrl('').then(() => {
-    });
+    this.router.navigateByUrl('').then(() => {});
   }
 
   setAChickenSoup() {
@@ -65,14 +64,17 @@ export class AppComponent implements OnInit {
 
   async login() {
     try {
-      const jwt= await this.loginService.getJWT('xxxxxx@gmail.com', '12345678');
+      const jwt = await this.loginService.getJWT(
+        'xxxxxx@gmail.com',
+        '12345678',
+      );
       UserInfo.getInstance().setUserFromJWT(jwt);
       const user = UserInfo.getInstance().user;
       if (user) {
         this.user = user;
       }
     } catch (err) {
-      console.error("login 失敗");
+      console.error('login 失敗');
     }
   }
 
@@ -86,9 +88,8 @@ export class AppComponent implements OnInit {
       try {
         await this.productDAOService.addNewProduct(this.user.jwt);
       } catch (err) {
-        console.error("addProduct has error");
+        console.error('addProduct has error');
       }
     }
-    
   }
 }

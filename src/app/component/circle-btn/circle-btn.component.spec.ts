@@ -8,9 +8,8 @@ describe('CircleBtnComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CircleBtnComponent ]
-    })
-    .compileComponents();
+      declarations: [CircleBtnComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CircleBtnComponent);
     component = fixture.componentInstance;

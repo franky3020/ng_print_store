@@ -1,14 +1,19 @@
-import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
-import {Bodies, Body, Engine, Render, Runner, World} from 'matter-js'
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import { Bodies, Body, Engine, Render, Runner, World } from 'matter-js';
 import * as p5 from 'p5';
 
 @Component({
   selector: 'app-cool-buy-btn',
   templateUrl: './cool-buy-btn.component.html',
-  styleUrls: ['./cool-buy-btn.component.css']
+  styleUrls: ['./cool-buy-btn.component.css'],
 })
 export class CoolBuyBtnComponent {
-
   @ViewChild('p5_div') p5_div: ElementRef<HTMLDivElement> | undefined;
 
   width = 240;
@@ -18,16 +23,16 @@ export class CoolBuyBtnComponent {
 
   engine = Engine.create();
   ngAfterViewInit() {
-
     const s = (sketch: any) => {
       // let engine = Engine.create();
       sketch.setup = () => {
-
         let p5Canvas = sketch.createCanvas(this.width, this.height);
         p5Canvas.parent(this.p5_div?.nativeElement);
 
         // let p5CanvasIdSelector = '#' + p5Canvas.id();
-        let p5CanvasElement = this.p5_div?.nativeElement.querySelector('canvas') as any;
+        let p5CanvasElement = this.p5_div?.nativeElement.querySelector(
+          'canvas',
+        ) as any;
         p5CanvasElement.className = 'rounded-full';
 
         let render = Render.create({
@@ -37,7 +42,7 @@ export class CoolBuyBtnComponent {
             width: this.width,
             height: this.height,
             wireframes: false,
-            background: 'rgba(0,255,0, 0.25)'
+            background: 'rgba(0,255,0, 0.25)',
           },
         });
         this.createArrow();
@@ -45,10 +50,7 @@ export class CoolBuyBtnComponent {
         Render.run(render);
       };
 
-      sketch.draw = () => {
-
-      };
-
+      sketch.draw = () => {};
     };
     new p5(s);
   }
@@ -71,7 +73,7 @@ export class CoolBuyBtnComponent {
       },
       frictionAir: 0,
       friction: 0.005,
-      restitution: 0.9
+      restitution: 0.9,
     });
   }
 
@@ -79,8 +81,8 @@ export class CoolBuyBtnComponent {
     let baseLine = Bodies.rectangle(50, 55, 500, 1, {
       isStatic: true,
       render: {
-        fillStyle: '#000000'
-      }
+        fillStyle: '#000000',
+      },
     });
     // Body.setAngle(baseLine, 135 );
     World.add(this.engine.world, baseLine);
@@ -92,41 +94,37 @@ export class CoolBuyBtnComponent {
     let yIndex = 30;
 
     let startX = 60;
-    for (let i = 0 ; i < 13 ; i++) {
+    for (let i = 0; i < 13; i++) {
       arrow.push(this.getABox(startX, yIndex));
       startX = startX + 10;
     }
 
     // 往後退2格造出上方的方塊
     let arrowUpX = startX - 20;
-    let arrowUpY = yIndex - 10
-    arrow.push(this.getABox(arrowUpX , arrowUpY));
+    let arrowUpY = yIndex - 10;
+    arrow.push(this.getABox(arrowUpX, arrowUpY));
 
     // 往後退1格造出最上方的方塊
     arrowUpX = arrowUpX - 10;
     arrowUpY = arrowUpY - 10;
-    arrow.push(this.getABox(arrowUpX , arrowUpY));
+    arrow.push(this.getABox(arrowUpX, arrowUpY));
 
     // 往後退2格 造出下方的方塊
     let arrowDownX = startX - 20;
-    let arrowDownY = yIndex + 10
-    arrow.push(this.getABox(arrowDownX , arrowDownY));
+    let arrowDownY = yIndex + 10;
+    arrow.push(this.getABox(arrowDownX, arrowDownY));
 
     // 往後退1格 造出最下方的方塊
     arrowDownX = arrowDownX - 10;
     arrowDownY = arrowDownY + 10;
-    arrow.push(this.getABox(arrowDownX , arrowDownY));
+    arrow.push(this.getABox(arrowDownX, arrowDownY));
 
     World.add(this.engine.world, arrow);
-
   }
-
 }
-
 
 @Component({
   selector: 'app-cool-buy-btn',
-  template: ''
+  template: '',
 })
-export class MockCoolBuyBtnComponent {
-}
+export class MockCoolBuyBtnComponent {}

@@ -1,6 +1,6 @@
-import {Injectable} from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable()
-export abstract class  TopContextGenerator {
-    abstract getOneContext(): string;
+export abstract class TopContextGenerator {
+  abstract getOneContext(): string;
 }

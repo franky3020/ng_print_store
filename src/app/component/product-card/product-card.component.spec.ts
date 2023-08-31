@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductCardComponent } from './product-card.component';
-import {Component} from "@angular/core";
-import {MockCoolBuyBtnComponent} from "../cool-buy-btn/cool-buy-btn.component";
+import { Component } from '@angular/core';
+import { MockCoolBuyBtnComponent } from '../cool-buy-btn/cool-buy-btn.component';
 
 describe('ImgCardComponent', () => {
   let component: ProductCardComponent;
@@ -10,9 +10,12 @@ describe('ImgCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductCardComponent, MockButtonWithTipComponent, MockCoolBuyBtnComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        ProductCardComponent,
+        MockButtonWithTipComponent,
+        MockCoolBuyBtnComponent,
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ProductCardComponent);
     component = fixture.componentInstance;
@@ -24,10 +27,8 @@ describe('ImgCardComponent', () => {
   });
 });
 
-
 @Component({
   selector: 'app-button-with-tip',
-  template: ''
+  template: '',
 })
-class MockButtonWithTipComponent {
-}
+class MockButtonWithTipComponent {}

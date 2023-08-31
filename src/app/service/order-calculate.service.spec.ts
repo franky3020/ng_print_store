@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import {OrderCalculateService, Product} from './order-calculate.service';
+import { OrderCalculateService, Product } from './order-calculate.service';
 
 describe('OrderCalculateService', () => {
   let service: OrderCalculateService;
@@ -14,9 +14,7 @@ describe('OrderCalculateService', () => {
     expect(service).toBeTruthy();
   });
 
-
   it('calculate order', () => {
-
     let product = new Product('test1', 500, 3);
     service.addProduct(product);
     let product2 = new Product('test2', 300, 6);
@@ -25,9 +23,6 @@ describe('OrderCalculateService', () => {
     service.setTransportation(50);
 
     let calResult = service.calculate();
-    expect(calResult).toBe(500*3 + 300*6 + 50);
-
-
+    expect(calResult).toBe(500 * 3 + 300 * 6 + 50);
   });
-
 });

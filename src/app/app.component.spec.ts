@@ -1,19 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import {Component} from "@angular/core";
-import {TypingTextComponent} from "./component/typing-text/typing-text.component";
+import { Component } from '@angular/core';
+import { TypingTextComponent } from './component/typing-text/typing-text.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent,
-        MockTypingTextComponent
-      ],
+      imports: [RouterTestingModule],
+      declarations: [AppComponent, MockTypingTextComponent],
     }).compileComponents();
   });
 
@@ -39,7 +34,6 @@ describe('AppComponent', () => {
 
 @Component({
   selector: 'app-typing-text',
-  template: ''
+  template: '',
 })
-class MockTypingTextComponent {
-}
+class MockTypingTextComponent {}

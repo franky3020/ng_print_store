@@ -8,9 +8,8 @@ describe('CoolBuyBtnComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CoolBuyBtnComponent ]
-    })
-    .compileComponents();
+      declarations: [CoolBuyBtnComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CoolBuyBtnComponent);
     component = fixture.componentInstance;

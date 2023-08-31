@@ -1,13 +1,12 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Color} from "../circle-btn/circle-btn.component";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Color } from '../circle-btn/circle-btn.component';
 
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.css']
+  styleUrls: ['./product-card.component.css'],
 })
 export class ProductCardComponent implements OnInit {
-
   @Input()
   name = '';
 
@@ -28,15 +27,14 @@ export class ProductCardComponent implements OnInit {
   @Output() nextBtnClick = new EventEmitter();
 
   imgSrc = 'https://picsum.photos/200/200';
-  
+
   imgIndex = 0;
-  
+
   get Color() {
     return Color;
   }
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
     if (this.imgSrcArray.length > 0) {
@@ -45,11 +43,10 @@ export class ProductCardComponent implements OnInit {
   }
 
   test() {
-    console.log("btn Click");
+    console.log('btn Click');
   }
 
   nextImg() {
-    
     const imgArraySize = this.imgSrcArray.length;
     this.imgIndex++;
     if (this.imgIndex >= imgArraySize) {
@@ -59,9 +56,8 @@ export class ProductCardComponent implements OnInit {
   }
 
   previousImg() {
-
     const imgArrayLastIndex = this.imgSrcArray.length - 1;
-    
+
     this.imgIndex--;
     if (this.imgIndex < 0) {
       this.imgIndex = imgArrayLastIndex;

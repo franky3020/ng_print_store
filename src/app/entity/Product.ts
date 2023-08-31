@@ -1,81 +1,75 @@
 export class Product {
-    id = 0;
-    price: number;
-    name = '';
-    createUserName = '';
-    describe = '';
-    photos: string[] = [];
+  id = 0;
+  price: number;
+  name = '';
+  createUserName = '';
+  describe = '';
+  photos: string[] = [];
 
-    constructor(builder: ProductBuilder) {
-        this.id = builder.id;
-        this.price = builder.price;
-        this.name = builder.name;
-        this.createUserName = builder.createUserName;
-        this.describe = builder.describe;
-        this.photos = builder.photos;
-    }
-
+  constructor(builder: ProductBuilder) {
+    this.id = builder.id;
+    this.price = builder.price;
+    this.name = builder.name;
+    this.createUserName = builder.createUserName;
+    this.describe = builder.describe;
+    this.photos = builder.photos;
+  }
 }
-
 
 export class ProductBuilder {
+  private _id: number;
+  private _price: number;
+  private _name: string;
+  private _createUserName = '';
+  private _describe = '';
+  private _photos: string[] = [];
 
-    private _id: number;
-    private _price: number;
-    private _name: string;
-    private _createUserName = '';
-    private _describe = '';
-    private _photos: string[] = [];
+  constructor(id: number, price: number, name: string) {
+    this._id = id;
+    this._price = price;
+    this._name = name;
+  }
 
-    constructor(id: number, price: number, name: string) {
-        this._id = id;
-        this._price = price;
-        this._name = name;
-    }
+  setDescribe(describe: string): ProductBuilder {
+    this._describe = describe;
+    return this;
+  }
 
+  setCreateUserName(createUserName: string): ProductBuilder {
+    this._createUserName = createUserName;
+    return this;
+  }
 
-    setDescribe(describe: string): ProductBuilder{
-        this._describe = describe;
-        return this;
-    }
+  setPhotos(photos: string[]): ProductBuilder {
+    this._photos = photos;
+    return this;
+  }
 
-    setCreateUserName(createUserName: string): ProductBuilder{
-        this._createUserName = createUserName;
-        return this;
-    }
+  build() {
+    return new Product(this);
+  }
 
-    setPhotos(photos: string[]): ProductBuilder{
-        this._photos = photos;
-        return this;
-    }
+  get id(): number {
+    return this._id;
+  }
 
-    build() {
-        return new Product(this);
-    }
+  get price(): number {
+    return this._price;
+  }
 
+  get name(): string {
+    return this._name;
+  }
 
-    get id(): number {
-        return this._id;
-    }
+  get createUserName(): string {
+    return this._createUserName;
+  }
 
-    get price(): number {
-        return this._price;
-    }
+  get describe(): string {
+    return this._describe;
+  }
 
-    get name(): string {
-        return this._name;
-    }
-
-    get createUserName(): string {
-        return this._createUserName;
-    }
-
-    get describe(): string {
-        return this._describe;
-    }
-
-    get photos(): string[] {
-        return this._photos;
-    }
+  get photos(): string[] {
+    return this._photos;
+  }
 }
-

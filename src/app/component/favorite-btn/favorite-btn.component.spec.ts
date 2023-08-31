@@ -8,9 +8,8 @@ describe('FavoriteBtnComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FavoriteBtnComponent ]
-    })
-    .compileComponents();
+      declarations: [FavoriteBtnComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(FavoriteBtnComponent);
     component = fixture.componentInstance;

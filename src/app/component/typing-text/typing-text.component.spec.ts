@@ -8,9 +8,8 @@ describe('TypingTextComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TypingTextComponent ]
-    })
-    .compileComponents();
+      declarations: [TypingTextComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TypingTextComponent);
     component = fixture.componentInstance;
@@ -25,5 +24,4 @@ describe('TypingTextComponent', () => {
     let textLength = component.getTextLength('中文');
     expect(textLength).toBe(4);
   });
-
 });

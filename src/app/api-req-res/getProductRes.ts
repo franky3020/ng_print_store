@@ -1,5 +1,4 @@
-import {Product, ProductBuilder} from "../entity/Product";
-
+import { Product, ProductBuilder } from '../entity/Product';
 
 export class GetProductRes {
   //     {
@@ -25,4 +24,4 @@ export const getProductRes2Product = (res: GetProductRes): Product => {
   productBuilder.setDescribe(res.describe);
   productBuilder.setPhotos(res.photos);
   return productBuilder.build();
-}
+};

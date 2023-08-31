@@ -1,12 +1,11 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-typing-text',
   templateUrl: './typing-text.component.html',
-  styleUrls: ['./typing-text.component.css']
+  styleUrls: ['./typing-text.component.css'],
 })
 export class TypingTextComponent {
-
   @Input()
   typingText: string = '';
 
@@ -15,8 +14,7 @@ export class TypingTextComponent {
   // 讓輸入後的文字後面有一些空白
   private blankLength = 3;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
     this.typingWidth = this.getTextLength(this.typingText) + this.blankLength;
@@ -30,5 +28,4 @@ export class TypingTextComponent {
   getTextLength(text: string) {
     return text.length * 2;
   }
-
 }

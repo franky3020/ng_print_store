@@ -8,9 +8,8 @@ describe('ButtonWithTipComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ButtonWithTipComponent ]
-    })
-    .compileComponents();
+      declarations: [ButtonWithTipComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ButtonWithTipComponent);
     component = fixture.componentInstance;

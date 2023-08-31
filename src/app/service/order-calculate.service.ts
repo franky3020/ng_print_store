@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrderCalculateService {
-
   order: Order = new Order();
-  constructor() { }
+  constructor() {}
 
   addProduct(product: Product) {
     this.order.products.push(product);
@@ -20,26 +19,20 @@ export class OrderCalculateService {
     this.order.transportation = transportation;
   }
 
-
   calculate() {
     let sum = 0;
-    this.order.products.forEach((product)=>{
+    this.order.products.forEach((product) => {
       sum = sum + product.price * product.quantity;
     });
     sum = sum + this.order.transportation;
     return sum;
   }
-
-
-
-
 }
 
 export class Order {
   products: Product[] = [];
   transportation: number = 0;
 }
-
 
 export class Product {
   name = '';
@@ -52,9 +45,6 @@ export class Product {
     this.quantity = quantity;
   }
 }
-
-
-
 
 // {
 //   "items": [

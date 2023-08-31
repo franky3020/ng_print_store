@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomePageComponent } from './home-page.component';
-import {Component} from "@angular/core";
+import { Component } from '@angular/core';
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
@@ -9,11 +9,8 @@ describe('HomePageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-          HomePageComponent,
-          MockImgCardComponent]
-    })
-    .compileComponents();
+      declarations: [HomePageComponent, MockImgCardComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HomePageComponent);
     component = fixture.componentInstance;
@@ -25,10 +22,8 @@ describe('HomePageComponent', () => {
   });
 });
 
-
 @Component({
   selector: 'app-product-card',
-  template: ''
+  template: '',
 })
-class MockImgCardComponent {
-}
+class MockImgCardComponent {}
